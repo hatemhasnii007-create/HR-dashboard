@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HR Analytics Dashboard · Kromberg & Schubert</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="HR Analytics Dashboard: headcount, hiring, turnover, regions, projects and generations.">
+<meta name="theme-color" content="#5E20B5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="HR Analytics">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <h1>HR Analytics Dashboard</h1>
+    <span class="sub">Headcount · Hiring · Turnover</span>
+  </div>
+  <img class="logo" src="assets/logo.png" alt="Kromberg &amp; Schubert" width="309" height="80">
+</header>
+
+<div class="layout">
+
+  <aside class="filters" aria-label="Filters">
+    <div class="filters-head">
+      <h2>Filters</h2>
+      <button id="reset" class="btn-reset" type="button">Reset</button>
+    </div>
+
+    <section class="f-group">
+      <h3>Year</h3>
+      <div class="seg" id="f-year" role="group" aria-label="Year"></div>
+    </section>
+
+    <section class="f-group">
+      <h3>Gender</h3>
+      <div class="chips" id="f-gender" role="group" aria-label="Gender"></div>
+    </section>
+
+    <section class="f-group">
+      <h3>Employee type</h3>
+      <div class="chips" id="f-type" role="group" aria-label="Employee type"></div>
+    </section>
+
+    <section class="f-group">
+      <h3>Project</h3>
+      <select id="f-project" aria-label="Project"></select>
+    </section>
+  </aside>
+
+  <main class="content">
+
+    <section class="kpis" aria-label="Key figures">
+      <article class="kpi"><span class="kpi-label">Headcount</span><strong id="k-head">–</strong><small id="k-head-s">&nbsp;</small></article>
+      <article class="kpi"><span class="kpi-label">Staff</span><strong id="k-staff">–</strong><small id="k-staff-s">&nbsp;</small></article>
+      <article class="kpi"><span class="kpi-label">Indirect</span><strong id="k-ind">–</strong><small id="k-ind-s">&nbsp;</small></article>
+      <article class="kpi"><span class="kpi-label">Direct</span><strong id="k-dir">–</strong><small id="k-dir-s">&nbsp;</small></article>
+      <article class="kpi accent"><span class="kpi-label">Total direct hires</span><strong id="k-hires">–</strong><small id="k-hires-s">&nbsp;</small></article>
+    </section>
+
+    <section class="grid">
+      <article class="card c-hiring"><h2>Monthly hiring</h2><div class="chart"><canvas id="ch-hiring"></canvas></div></article>
+      <article class="card c-region"><div class="card-h"><h2>Employees by region</h2><button class="toggle" data-t="region" type="button">All</button></div><div class="chart"><canvas id="ch-region"></canvas></div></article>
+      <article class="card c-gender"><h2>Employees by gender</h2><div class="chart"><canvas id="ch-gender"></canvas></div></article>
+
+      <article class="card c-exits"><h2>Monthly turnover</h2><div class="chart"><canvas id="ch-exits"></canvas></div></article>
+      <article class="card c-gen"><h2>Employee generations</h2><div class="chart"><canvas id="ch-gen"></canvas></div></article>
+      <article class="card c-tregion"><div class="card-h"><h2>Turnover by region</h2><button class="toggle" data-t="tregion" type="button">All</button></div><div class="chart"><canvas id="ch-tregion"></canvas></div></article>
+
+      <article class="card c-project"><h2>Employees by project</h2><div class="chart"><canvas id="ch-project"></canvas></div></article>
+      <article class="card c-tproject"><h2>Turnover by project</h2><div class="chart"><canvas id="ch-tproject"></canvas></div></article>
+      <article class="card c-sen"><h2>Headcount by seniority</h2><div class="chart"><canvas id="ch-sen"></canvas></div></article>
+    </section>
+
+    <footer class="foot">
+      Year-end headcount = hired on or before 31 Dec and not left by then · Seniority is a snapshot (Sept 2026) · Aggregated and anonymised data only
+    </footer>
+  </main>
+</div>
+
+<script src="js/chart.umd.min.js"></script>
+<script src="data/hr-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
